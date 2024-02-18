@@ -1,7 +1,7 @@
 let billetter = [];
 
 
-function visBilletter(){
+function visBilletter() {
     let kjøptFilm = document.getElementById("filmer").value;
     let antallBilletter = document.getElementById("antallBilletter").value;
     let gittnavn = document.getElementById("fornavn").value;
@@ -28,42 +28,54 @@ function visBilletter(){
     document.getElementById("telefon").value = "";
     document.getElementById("epost").value = "";
 
-    // Nullstill feilmeldinger
-    document.getElementById("fornavnError").textContent = "";
-    document.getElementById("etternavnError").textContent = "";
-    document.getElementById("telefonError").textContent = "";
-    document.getElementById("epostError").textContent = "";
+
+    document.getElementById("antallBilletterFeil").textContent = "";
+    document.getElementById("fornavnFeil").textContent = "";
+    document.getElementById("etternavnFeil").textContent = "";
+    document.getElementById("tlfFeil").textContent = "";
+    document.getElementById("epostFeil").textContent = "";
 
     let isValid = true;
 
-// Valider fornavn
-    if (gittnavn.trim() === "" || /\d/.test(gittnavn))  {
-        document.getElementById("fornavnError").textContent = "Må skrive noe i fornavnet";
+
+    if (antallBilletter.trim() === "" || /\d/.test(gittnavn))  {
+        document.getElementById("fornavnFeil").textContent = "Må skrive noe i fornavnet";
+        document.getElementById("fornavnFeil").style.color = "red";
         isValid = false;
     }
 
-// Valider etternavn
+    if (antallBilletter.trim() === "" || !Number(antallBilletter))  {
+        document.getElementById("antallBilletterFeil").textContent = "Må skrive inn antall";
+        document.getElementById("antallBilletterFeil").style.color = "red";
+        isValid = false;
+    }
+
+
     if (slektsnavn.trim() === "" || /\d/.test(slektsnavn)) {
-        document.getElementById("etternavnError").textContent = "Må skrive noe i etternavnet";
+        document.getElementById("etternavnFeil").textContent = "Må skrive noe i etternavnet";
+        document.getElementById("etternavnFeil").style.color = "red";
         isValid = false;
     }
 
-// Valider telefonnummer
-    if (tlf.trim() === "" || !Number(tlf) || tlf.length !== 8) {
-        document.getElementById("tlfError").textContent = "Må skrive noe i telefonnummeret";
+
+    if (tlf.trim() === "" || !Number(tlf) || tlf.length !==8) {
+        document.getElementById("tlfFeil").textContent = "Må skrive et telefonnummer";
+        document.getElementById("tlfFeil").style.color = "red";
         isValid = false;
     }
 
-// Valider e-postadresse
+
     if (mail.trim() === "" || !mail.includes("@") || !mail.includes(".")) {
-        document.getElementById("epostError").textContent = "Må skrive noe i e-postadressen";
+        document.getElementById("epostFeil").textContent = "Må skrive en e-postadressen";
+        document.getElementById("epostFeil").style.color = "red";
         isValid = false;
     }
 
     if (!isValid) {
-        // Avbryt billettkjøpet hvis validering mislykkes
+
         return;
     }
+
 }
 
 function ut(){
