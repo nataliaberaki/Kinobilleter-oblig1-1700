@@ -10,17 +10,17 @@
         <label>Velg Film</label>
     <select id="filmer">
     <option value="velg-flm">Velg film her</option>
-        <option value="Biler">Biler</option>
-        <option value="paradise-city">Paradise city</option>
+        <option value="biler">Biler</option>
+        <option value="shrek">Shrek</option>
         <option value="tangled">Tangled</option>
-        <option value="anyone-but-you">Anyone But You</option>
+        <option value="oppdrag-nemo">Oppdrag Nemo</option>
     </select>
 
     <br>
     <br>
 
-    <label for="antall">Antall Billetter</label>
-    <input id="antall" type="text">
+    <label for="antallBilletter">Antall Billetter</label>
+    <input id="antallBilletter" type="text">
 
     <br>
     <br>
@@ -34,8 +34,8 @@
 
     <br>
     <br>
-    <label for="tlf">Telefon</label>
-    <input id="tlf" type="text">
+    <label for="telefon">Telefon</label>
+    <input id="telefon" type="text">
 
     <br>
     <br>
@@ -44,12 +44,12 @@
 
     <br>
     <br>
-    <button id="kjøp" onclick="visBilletter()">Kjøp billett</button>
+    <button onclick="visBilletter()">Kjøp billett</button>
 
     <h2>Alle Billetter</h2>
 
     <div id="billetter"></div>
     <br>
-    <button id="slett" onclick="visSlettBilletter">Slett Alle Billetter</button>
+    <button onclick="visSlettBilletter">Slett Alle Billetter</button>
 </body>
 </html>
