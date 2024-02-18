@@ -28,6 +28,42 @@ function visBilletter(){
     document.getElementById("telefon").value = "";
     document.getElementById("epost").value = "";
 
+    // Nullstill feilmeldinger
+    document.getElementById("fornavnError").textContent = "";
+    document.getElementById("etternavnError").textContent = "";
+    document.getElementById("telefonError").textContent = "";
+    document.getElementById("epostError").textContent = "";
+
+    let isValid = true;
+
+// Valider fornavn
+    if (gittnavn.trim() === "" || /\d/.test(gittnavn))  {
+        document.getElementById("fornavnError").textContent = "Må skrive noe i fornavnet";
+        isValid = false;
+    }
+
+// Valider etternavn
+    if (slektsnavn.trim() === "" || /\d/.test(slektsnavn)) {
+        document.getElementById("etternavnError").textContent = "Må skrive noe i etternavnet";
+        isValid = false;
+    }
+
+// Valider telefonnummer
+    if (tlf.trim() === "" || !Number(tlf) || tlf.length !== 8) {
+        document.getElementById("tlfError").textContent = "Må skrive noe i telefonnummeret";
+        isValid = false;
+    }
+
+// Valider e-postadresse
+    if (mail.trim() === "" || !mail.includes("@") || !mail.includes(".")) {
+        document.getElementById("epostError").textContent = "Må skrive noe i e-postadressen";
+        isValid = false;
+    }
+
+    if (!isValid) {
+        // Avbryt billettkjøpet hvis validering mislykkes
+        return;
+    }
 }
 
 function ut(){
@@ -45,7 +81,6 @@ function ut(){
 
     skrivUt += "</table>";
     document.getElementById("kjøptBilletter").innerHTML = skrivUt;
-
 
 }
 

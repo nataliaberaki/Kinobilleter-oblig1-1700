@@ -6,7 +6,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h1>Bestilling av Kinobilletter</h1>    
+    <h1>Bestilling av Kinobilletter</h1>
         <label>Velg Film</label>
     <select id="filmer">
     <option value="velg-flm">Velg film her</option>
@@ -20,34 +20,39 @@
     <br>
 
     <label for="antallBilletter">Antall Billetter</label>
-    <input id="antallBilletter" type="text">
+    <input id="antallBilletter" type="number" min="1" required>
+    <span id="antallBilletterFeil" class="feilmelding"></span>
 
     <br>
     <br>
     <label for="fornavn">Fornavn</label>
-        <input id="fornavn" type="text">
+    <input id="fornavn" type="text" pattern="[a-zA-Z]+" required>
+    <span id="fornavnError" class="feilmelding"></span>
 
     <br>
     <br>
     <label for="etternavn">Etternavn</label>
-    <input id="etternavn" type="text">
+    <input id="etternavn" type="text" pattern="[a-zA-Z]+" required>
+    <span id="etternavnError" class="feilmelding"></span>
 
     <br>
     <br>
     <label for="telefon">Telefon</label>
-    <input id="telefon" type="text">
+    <input id="telefon" type="tel" pattern="[0-9]{8}" required>
+    <span id="telefonError" class="feilmelding"></span>
 
     <br>
     <br>
     <label for="epost">E-post</label>
-    <input id="epost" type="text">
+    <input id="epost" type="email" required>
+    <span id="epostError" class="feilmelding"></span>
 
     <br>
     <br>
     <button onclick="visBilletter()">Kjøp billett</button>
 
-    <h2>Alle Billetter</h2>
 
+    <h2>Alle Billetter</h2>
     <div id="kjøptBilletter"></div>
     <br>
     <button onclick="slettBilletter()">Slett Alle Billetter</button>
